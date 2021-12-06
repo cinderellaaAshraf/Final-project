@@ -61,7 +61,7 @@ exports.getOne = (Model, popOptions) =>
     });
   });
 
-exports.getAll = (Model) =>
+  exports.getAll = (Model) =>
   catchAsync(async (req, res, next) => {
     //To allow for nested Get reviews on tour
     let filter = {};

@@ -75,7 +75,6 @@ app.use((req, res, next) => {
 });
 
 // 3) ROUTES
-app.use('/', userRouter)
 app.use('/users', userRouter);
 
 app.all('*', (req, res, next) => {

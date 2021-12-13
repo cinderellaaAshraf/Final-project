@@ -12,6 +12,7 @@ const compression = require('compression');
 const AppError = require('./utils/appError');
 const globalErrorHandler = require('./controllers/errorController');
 const userRouter = require('./routes/userRoutes');
+const viewRouter = require('./routes/viewRoutes');
 
 const app = express();
 
@@ -75,6 +76,7 @@ app.use((req, res, next) => {
 });
 
 // 3) ROUTES
+app.use('/', viewRouter);
 app.use('/users', userRouter);
 
 app.all('*', (req, res, next) => {

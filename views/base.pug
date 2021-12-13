@@ -3,25 +3,38 @@ html
   head
     block head
       meta(charset='UTF-8')
+      meta(http-equiv='X-UA-Compatible' content='IE=edge')
       meta(name='viewport' content='width=device-width, initial-scale=1.0')
-      link(rel='stylesheet' href='/css/style.css')
-      link(rel='shortcut icon' type='image/png' href='/img/favicon.png')
-      link(rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lato:300,300i,700')
-      title Natours | #{title}
-  
-  body
+      link(rel='icon' href='/images/house-commerce.png')
+      // css and js bootstrap
+      link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css' integrity='sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l' crossorigin='anonymous')
+      // normalize file
+      link(rel='stylesheet' href='/css/normalize.css')
+      // css main file
+      link(rel='stylesheet' href='/css/index.css')
+      // font awsome library for icons
+      link(rel='stylesheet' href='/css/all-min.css')
+      // font awsowm
+      link(rel='stylesheet' href='https://cdn.jsdelivr.net/npm/bootstrap-icons@1.6.1/font/bootstrap-icons.css')
+      // Google Fonts
+      link(rel='preconnect' href='https://fonts.googleapis.com')
+      link(rel='preconnect' href='https://fonts.gstatic.com' crossorigin='')
+      link(href='https://fonts.googleapis.com/css2?family=Montagu+Slab:wght@200;300;400;500;700&display=swap' rel='stylesheet')
+
+      title CRAFTS
+  body(data-alert=`${alert ? alert : ''}`)
     // HEADER
     include _header
 
     // CONTENT
-    block content 
+    block content
       h1 This is a placeholder heading
-      
+
     // FOOTER
     include _footer
-    
-    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.4/axios.min.js')
+
+    //- script(src='https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js')
     //- script(src='/js/mapbox.js')
     //- script(src='/js/login.js')
-    script(src='https://js.stripe.com/v3/')
-    script(src='/js/bundle.js')
+    script(src='https://code.jquery.com/jquery-3.5.1.slim.min.js' integrity='sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj' crossorigin='anonymous')
+    script(src='https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js' integrity='sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns' crossorigin='anonymous')

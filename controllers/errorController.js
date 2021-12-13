@@ -26,59 +26,58 @@ const handleJWTExpiredError = () =>
   new AppError('Your token has expired! Please log in again.', 401);
 
 const sendErrorDev = (err, req, res) => {
-  // A) API
-  if (req.originalUrl.startsWith('/api')) {
+  //A)api
+  if (req.originalUrl.startsWith('/')) {
     return res.status(err.statusCode).json({
       status: err.status,
       error: err,
       message: err.message,
-      stack: err.stack
+      stack: err.stack,
     });
   }
-
-  // B) RENDERED WEBSITE
+  //A)rendered wepsite
   console.error('ERROR 💥', err);
   return res.status(err.statusCode).render('error', {
-    title: 'Something went wrong!',
+    title: 'something went wrong',
     msg: err.message
   });
 };
 
 const sendErrorProd = (err, req, res) => {
-  // A) API
-  if (req.originalUrl.startsWith('/api')) {
-    // A) Operational, trusted error: send message to client
+  //B)api
+  if (req.originalUrl.startsWith('/')) {
+    // Operational, trusted error: send message to client
     if (err.isOperational) {
       return res.status(err.statusCode).json({
         status: err.status,
-        message: err.message
+        message: err.message,
       });
     }
-    // B) Programming or other unknown error: don't leak error details
+    // Programming or other unknown error: don't leak error details
     // 1) Log error
     console.error('ERROR 💥', err);
+
     // 2) Send generic message
     return res.status(500).json({
       status: 'error',
-      message: 'Something went very wrong!'
+      message: 'Something went very wrong!',
     });
   }
-
-  // B) RENDERED WEBSITE
-  // A) Operational, trusted error: send message to client
+  // B) rendered website
   if (err.isOperational) {
     return res.status(err.statusCode).render('error', {
-      title: 'Something went wrong!',
-      msg: err.message
+      title: 'something went wrong',
+      msg: err.message,
     });
   }
-  // B) Programming or other unknown error: don't leak error details
+  // Programming or other unknown error: don't leak error details
   // 1) Log error
   console.error('ERROR 💥', err);
+
   // 2) Send generic message
   return res.status(err.statusCode).render('error', {
-    title: 'Something went wrong!',
-    msg: 'Please try again later.'
+    title: 'something went wrong',
+    msg: 'please try again later.',
   });
 };
 

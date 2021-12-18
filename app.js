@@ -5,7 +5,7 @@ const rateLimit = require('express-rate-limit');
 const helmet = require('helmet');
 const mongoSanitize = require('express-mongo-sanitize');
 const xss = require('xss-clean');
-const hpp = require('hpp');
+//const hpp = require('hpp');
 const cookieParser = require('cookie-parser');
 const compression = require('compression');
 
@@ -53,7 +53,18 @@ app.use(mongoSanitize());
 app.use(xss());
 
 // Prevent parameter pollution
-
+/*app.use(
+  hpp({
+    whitelist: [
+      'duration',
+      'ratingsQuantity',
+      'ratingsAverage',
+      'maxGroupSize',
+      'difficulty',
+      'price',
+    ],
+  })
+);*/
 
 app.use(compression());
 
@@ -65,7 +76,8 @@ app.use((req, res, next) => {
 });
 
 // 3) ROUTES
-app.use('/', viewRouter);
+app.use('/', viewRouter)
+
 app.use('/users', userRouter);
 
 app.all('*', (req, res, next) => {

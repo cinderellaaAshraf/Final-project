@@ -1,17 +1,19 @@
-.header
+header.header
   .container
-    a.logo(href='/' )
-      img(src='/images/house-commerce.png' alt='Craft logo' width='70px' height='65px')
-      | Crafts  
+    a.logo(href='#')
+      img(src='/images/house commerce.png' width='70px' height='65px')
+      | Crafts
     .nav
       i#icon.bi.bi-list
       ul.ull
-        li: a(href='#') About
-        li: a(href='#') Services
-        li: a(href='#') Catigories
-        li: a(href='#') Contact
-        li: a.log(href='/index2.html') Login
-script.
-  $("#icon").click(function () {
-  $(".ull").toggle();
-  })
+        li
+          a(href='#services') About
+        li
+          a(href='#portifolio') Services
+        li
+          a(href='#about') Catigories
+        li
+          a(href='#pricing') Contact
+        li
+          a.log(href='/login') register
+
